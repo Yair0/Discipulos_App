@@ -19,7 +19,7 @@ class SplashScreen : AppCompatActivity() {
                 )
             },TIME)
 
-        appName.text = "Aplicacion desarrollada para resolver el problema del X"
-        namesAlumno.text = "Yair Pimentel\t\tA01652823\n\nGerman Reyes\t\tA01336637\n\nDiego Moreno\t\tA01"
+        appName.text = "Aplicacion desarrollada para atacar el problema de pobreza en el mundo"
+        namesAlumno.text = "Yair Pimentel\t\tA01652823\n\nGermán Reyes\t\tA01336637\n\nDiego Moreno\t\tA01337594"
     }
 }
