@@ -1,3 +1,5 @@
 package mx.yair.discipulos_app
 
-data class CountryData(val countryName:String, val region:String, val income:String)
+import java.io.Serializable
+
+data class CountryData(val countryName:String,val income:String, val region:String) : Serializable

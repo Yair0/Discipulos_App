@@ -1,5 +1,6 @@
 package mx.yair.discipulos_app
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,12 +22,16 @@ class CountryInfoRA : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         return countries.size
     }
 
-
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
             is CountryViewHolder -> {
                 holder.bind(countries.get(position))
+                holder.itemView.setOnClickListener {
+                    val contexto = it.context
+                    val intent = Intent(contexto, CountryInfoActivity::class.java)
+                    intent.putExtra("country", countries[position])
+                    contexto.startActivity(intent)
+                }
             }
         }
 
@@ -40,12 +45,21 @@ class CountryInfoRA : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     class CountryViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
         val name = itemView.countryName
         val region = itemView.region
-        val income = itemView.income
+
 
         fun bind(country: CountryData){
             name.text = country.countryName
             region.text = country.region
-            income.text = country.income
+
+            if (country.region == "South Asia"){
+
+                itemView.countryImage.setImageResource(R.drawable.itesm_logo)
+
+
+            }
+
+
+
         }
     }
 
