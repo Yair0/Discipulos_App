@@ -1,7 +1,7 @@
 # Discipulos_App
 Aplicación para concientizar acerca de la pobreza mundial en el 2020
 
-# Alumnos
+## Alumnos
 * Diego Moreno A01337594
 * Jorge Germán Reyes A01336637
 * Yair Yolotl Pimentel A01652823
@@ -12,3 +12,6 @@ Aplicación para concientizar acerca de la pobreza mundial en el 2020
 1. Con el atributo iso2 del JSON, la aplicación manda a llamar las imágenes de todos los países de otra página (https://www.countryflags.io/) y las carga con Glide
 1. Se puede hacer clic en cada país para ver su información más detallada. La imágen cargada en la pantalla de detalles dependerá del nivel de ingresos.
 1. Si el ingreso de dicho país es bajo, se puede picar un botón para "Ayudar" al país.
+
+## Notas
+La aplicación solo consigue los primeros 50 países en el API por motivos de performance para cargar las banderas, para cargar todos los países hay que cambiar la url del MainActivity.kt y poner en lugar de `per_page=50`, poner `per_page=30`
