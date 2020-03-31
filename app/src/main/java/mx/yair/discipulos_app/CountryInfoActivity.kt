@@ -2,6 +2,7 @@ package mx.yair.discipulos_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_country_info.*
 
 
@@ -15,11 +16,22 @@ class CountryInfoActivity : AppCompatActivity() {
         countryName.text = country!!.countryName
         income.text = country!!.income
 
-        if (country!!.income == "Low income"){
+        if (country.income == "Low income"){
             incomeImageView.setImageResource(R.drawable.sad)
+            buttonAyudar.visibility = View.VISIBLE
 
-        }else if (country!!.income == "High income"){
+            buttonAyudar.setOnClickListener {
+                textViewHelp.text = "Thank you for your help"
+            }
+        }else if (country.income == "Lower middle income" || country.income == "Upper middle income"){
+            incomeImageView.setImageResource(R.drawable.medium)
+            buttonAyudar.visibility = View.INVISIBLE
+            textViewHelp.visibility = View.INVISIBLE
+
+        } else if (country.income == "High income"){
             incomeImageView.setImageResource(R.drawable.happy)
+            buttonAyudar.visibility = View.INVISIBLE
+            textViewHelp.visibility = View.INVISIBLE
         }
 
     }
