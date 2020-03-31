@@ -18,16 +18,17 @@ class CountryInfoActivity : AppCompatActivity() {
 
         if (country.income == "Low income"){
             incomeImageView.setImageResource(R.drawable.sad)
-
             buttonAyudar.visibility = View.VISIBLE
 
             buttonAyudar.setOnClickListener {
                 textViewHelp.text = "Thank you for your help"
             }
+        }else if (country.income == "Lower middle income" || country.income == "Upper middle income"){
+            incomeImageView.setImageResource(R.drawable.medium)
+            buttonAyudar.visibility = View.INVISIBLE
+            textViewHelp.visibility = View.INVISIBLE
 
-
-
-        }else if (country.income == "High income"){
+        } else if (country.income == "High income"){
             incomeImageView.setImageResource(R.drawable.happy)
             buttonAyudar.visibility = View.INVISIBLE
             textViewHelp.visibility = View.INVISIBLE
