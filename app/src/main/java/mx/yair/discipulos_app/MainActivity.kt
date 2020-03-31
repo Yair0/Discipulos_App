@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun apiURL():String{
-        val url = "https://api.worldbank.org/V2/country?format=json&per_page=304" // All countries
+        val url = "https://api.worldbank.org/V2/country?format=json&per_page=50" // All countries
         //val url = "https://api.worldbank.org/V2/country?format=json&per_page=10" // Only first 10 countries
         return url
     }

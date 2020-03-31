@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.country_layout.view.*
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+
 
 class CountryInfoRA : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-
     private  var countries: List<CountryData> = ArrayList()
 
     // Creates the layout
@@ -45,21 +47,13 @@ class CountryInfoRA : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     class CountryViewHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView){
         val name = itemView.countryName
         val region = itemView.region
-
-
+        val image = itemView.countryImage
+        var flagurl:String? = null
         fun bind(country: CountryData){
             name.text = country.countryName
             region.text = country.region
-
-            if (country.region == "South Asia"){
-
-                itemView.countryImage.setImageResource(R.drawable.itesm_logo)
-
-
-            }
-
-
-
+            flagurl = country.url
+            Glide.with(itemView).load(flagurl).error(R.drawable.itesm_logo).apply(RequestOptions.overrideOf(200,200)).into(image)
         }
     }
 

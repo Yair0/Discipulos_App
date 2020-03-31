@@ -25,15 +25,17 @@ class PovertyDataVolley(val context:Context, val url:String, val countryAdapter:
                 for (i in 0 until countries.length()) {
                     val country = countries.getJSONObject(i)
                     val id = country.getString("id")
+                    val iso2 = country.getString("iso2Code")
                     val countryName = country.getString("name")
                     val region = country.getJSONObject("region").getString("value")
                     val income = country.getJSONObject("incomeLevel").getString("value")
+                    val flagUrl = "https://www.countryflags.io/${iso2.toLowerCase()}/shiny/64.png"
                     val info = "$id, $countryName, $region, $income"
-
+                    Log.d("Flag url", flagUrl)
                     // Objects with Aggregates in these values means it's a continent, not a country
                     // so it won't get added to the country list
                     if (region != "Aggregates" && income != "Aggregates") {
-                        val countryObject = CountryData(countryName, income, region)
+                        val countryObject = CountryData(countryName, income, region, flagUrl)
                         countryList.add(countryObject)
                     }
                 }
